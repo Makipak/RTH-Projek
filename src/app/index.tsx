@@ -1,98 +1,113 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { router } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "@/constants/theme";
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>RTH Questionnaire</Text>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+        <Text style={styles.subtitle}>
+          Analisis Monitoring Tingkat Hospitalisasi Pasien
+        </Text>
+      </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+      <Text style={styles.sectionTitle}>Pilih Peran</Text>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+      <Pressable
+        style={styles.card}
+        onPress={() => router.push("/questionnaire")}
+      >
+        <Ionicons
+          name="person"
+          size={40}
+          color={Colors.light.primary}
+        />
+
+        <Text style={styles.cardTitle}>Pasien</Text>
+
+        <Text style={styles.cardDescription}>
+          Isi kuesioner untuk membantu penelitian.
+        </Text>
+      </Pressable>
+
+      <Pressable
+        style={styles.card}
+        onPress={() => router.push("/nurse/login")}
+      >
+        <Ionicons
+          name="medical"
+          size={40}
+          color={Colors.light.primary}
+        />
+
+        <Text style={styles.cardTitle}>Perawat</Text>
+
+        <Text style={styles.cardDescription}>
+          Login untuk melihat dashboard dan laporan.
+        </Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+    backgroundColor: Colors.light.background,
+    padding: 24,
+    justifyContent: "center",
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
+
+  header: {
+    marginBottom: 40,
+    alignItems: "center",
   },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
+
   title: {
-    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: "700",
+    color: Colors.light.primary,
   },
-  code: {
-    textTransform: 'uppercase',
+
+  subtitle: {
+    marginTop: 8,
+    textAlign: "center",
+    color: Colors.light.textSecondary,
+    lineHeight: 22,
   },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 16,
+  },
+
+  card: {
+    backgroundColor: Colors.light.backgroundElement,
+    borderRadius: 20,
+    padding: 24,
+    marginBottom: 16,
+    alignItems: "center",
+
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+
+    elevation: 3,
+  },
+
+  cardTitle: {
+    marginTop: 12,
+    fontSize: 20,
+    fontWeight: "700",
+  },
+
+  cardDescription: {
+    marginTop: 8,
+    textAlign: "center",
+    color: Colors.light.textSecondary,
   },
 });
