@@ -21,6 +21,17 @@ export const Colors = {
     success: "#22C55E",
     warning: "#F59E0B",
     error: "#EF4444",
+
+    // RTH Monitor design system (lihat §Design System di CLAUDE.md)
+    rthPrimary: '#1B4332',
+    rthPrimaryMid: '#2D6A4F',
+    rthBackground: '#EEF5EE',
+    rthCardBackground: '#FFFFFF',
+    rthBorder: '#CDE5CD',
+    rthTextMuted: '#9DD4A0',
+    rthTextSubtle: '#6B8F6B',
+    rthTextFaint: '#7DAF7D',
+    rthTextCaption: '#AACBAA',
   },
   dark: {
     text: '#ffffff',
@@ -35,10 +46,50 @@ export const Colors = {
     success: "#22C55E",
     warning: "#F59E0B",
     error: "#EF4444",
+
+    // RTH Monitor design system (lihat §Design System di CLAUDE.md)
+    rthPrimary: '#52B788',
+    rthPrimaryMid: '#2D6A4F',
+    rthBackground: '#0F1A12',
+    rthCardBackground: '#152019',
+    rthBorder: '#2A3D2E',
+    rthTextMuted: '#9DD4A0',
+    rthTextSubtle: '#5A9060',
+    rthTextFaint: '#3B6640',
+    rthTextCaption: '#2A4A2E',
   },
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+
+// Kategori skor kuesioner — sama di light & dark mode (lihat §Design System di CLAUDE.md)
+export const RthCategoryColors = {
+  sangatRendah: '#ef4444',
+  rendah: '#f97316',
+  sedang: '#eab308',
+  tinggi: '#22c55e',
+  sangatTinggi: '#10b981',
+} as const;
+
+// Warna teks badge kategori di layar hasil kuesioner — beda dari RthCategoryColors
+// (yang dipakai untuk dot/arc). Pola skala Tailwind 700 (light) / 400 (dark) per warna
+// dasar kategori, dikonfirmasi dari 2 contoh di mockup (sedang & sangatTinggi).
+export const RthCategoryTextColors = {
+  light: {
+    sangatRendah: '#b91c1c',
+    rendah: '#c2410c',
+    sedang: '#a16207',
+    tinggi: '#15803d',
+    sangatTinggi: '#047857',
+  },
+  dark: {
+    sangatRendah: '#f87171',
+    rendah: '#fb923c',
+    sedang: '#fbbf24',
+    tinggi: '#4ade80',
+    sangatTinggi: '#34d399',
+  },
+} as const;
 
 export const Fonts = Platform.select({
   ios: {

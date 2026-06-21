@@ -31,7 +31,28 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+pubsub-debug.log
+
+# EAS Build
+.eas/
+
+# local build artifacts
+*.apk
+*.aab
+*.ipa
+
+# logs
+*.log
 
 # typescript
 *.tsbuildinfo
