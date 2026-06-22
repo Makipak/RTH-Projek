@@ -1,0 +1,45 @@
+{
+  "cli": {
+    "version": ">= 16.28.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCHPdIUShWyRCYgtnaNoNe7a4B5ac2cZiE",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "rth-monitoring.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "rth-monitoring",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "rth-monitoring.firebasestorage.app",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "317090517893",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:317090517893:android:b848c2097e75f922beeaec"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCHPdIUShWyRCYgtnaNoNe7a4B5ac2cZiE",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "rth-monitoring.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "rth-monitoring",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "rth-monitoring.firebasestorage.app",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "317090517893",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:317090517893:android:b848c2097e75f922beeaec"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_FIREBASE_API_KEY": "AIzaSyCHPdIUShWyRCYgtnaNoNe7a4B5ac2cZiE",
+        "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "rth-monitoring.firebaseapp.com",
+        "EXPO_PUBLIC_FIREBASE_PROJECT_ID": "rth-monitoring",
+        "EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET": "rth-monitoring.firebasestorage.app",
+        "EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "317090517893",
+        "EXPO_PUBLIC_FIREBASE_APP_ID": "1:317090517893:android:b848c2097e75f922beeaec"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

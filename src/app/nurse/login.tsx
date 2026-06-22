@@ -12,6 +12,7 @@ import {
 import { router } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Ionicons } from "@expo/vector-icons";
+import Svg, { Ellipse, Rect } from "react-native-svg";
 import { auth } from "@/lib/firebase";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { useTheme } from "@/hooks/use-theme";
@@ -101,7 +102,35 @@ export default function NurseLoginScreen() {
                   },
             ]}
           >
-            <Ionicons name="leaf" size={28} color={isDark ? theme.rthPrimary : "#FFFFFF"} />
+            <Svg width={28} height={28} viewBox="0 0 34 34" fill="none">
+              <Ellipse
+                cx={20}
+                cy={15.5}
+                rx={7}
+                ry={12}
+                fill={isDark ? theme.rthPrimary : "rgba(255,255,255,0.9)"}
+                opacity={isDark ? 0.9 : 1}
+                transform="rotate(22 20 15.5)"
+              />
+              <Ellipse
+                cx={14}
+                cy={15.5}
+                rx={7}
+                ry={12}
+                fill={isDark ? theme.rthTextMuted : "rgba(255,255,255,0.55)"}
+                opacity={isDark ? 0.5 : 1}
+                transform="rotate(-22 14 15.5)"
+              />
+              <Rect
+                x={16}
+                y={24}
+                width={2.5}
+                height={7}
+                rx={1.25}
+                fill={isDark ? theme.rthPrimary : "rgba(255,255,255,0.7)"}
+                opacity={isDark ? 0.65 : 1}
+              />
+            </Svg>
           </View>
           <Text style={[styles.logoTitle, { color: isDark ? theme.text : "#FFFFFF" }]}>
             RTH Monitor
